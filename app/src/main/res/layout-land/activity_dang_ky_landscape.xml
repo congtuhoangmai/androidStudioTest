@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".MainDangKy">
+
+    <!-- Phần tiêu đề bên trái -->
+
+    <!-- Phần form nhập liệu bên phải -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="373dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:scaleX="1.75"
+            android:scaleY="1.75"
+            android:src="@drawable/appicon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.708"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.279" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đăng ký"
+            android:textColor="#02baf2"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.692"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/dkTaiKhoan"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit"
+            android:drawableRight="@drawable/ic_taikhoan"
+            android:hint="Tài Khoản"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp" />
+
+        <EditText
+            android:id="@+id/dkMatKhau"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit"
+            android:drawableRight="@drawable/ic_matkhau"
+            android:hint="Mật Khẩu"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp" />
+
+        <EditText
+            android:id="@+id/dkEmail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit"
+            android:drawableRight="@drawable/ic_email"
+            android:hint="Email"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/dkDangKy"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/botron"
+                android:text="Đăng ký" />
+
+            <Button
+                android:id="@+id/dkDangNhap"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/botron"
+                android:text="Trở về Đăng Nhập" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

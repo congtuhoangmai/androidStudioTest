@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainDangKy">
+
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/appicon"
+        android:scaleX="1.75"
+        android:scaleY="1.75"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Đăng ký"
+        android:textColor="#02baf2"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/dkTaiKhoan"
+        android:drawableRight="@drawable/ic_taikhoan"
+        android:hint="Tài Khoản"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"/>
+    <EditText
+        android:id="@+id/dkMatKhau"
+        android:drawableRight="@drawable/ic_matkhau"
+        android:hint="Mật Khẩu"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"/>
+    <EditText
+        android:id="@+id/dkEmail"
+        android:drawableRight="@drawable/ic_email"
+        android:hint="Email"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"/>
+    <Button
+        android:id="@+id/dkDangKy"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:text="Đăng ký"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botron"/>
+    <Button
+        android:id="@+id/dkDangNhap"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="Trở về Đăng Nhập"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/botron"/>
+</LinearLayout>
