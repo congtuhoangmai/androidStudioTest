@@ -135,8 +135,8 @@ public class HomeFragment extends Fragment {
         viewFlipper.setAutoStart(true);
 
         // Thiết lập animation cho slide
-        Animation animation_slide_in= AnimationUtils.loadAnimation(getContext(),R.anim.slide_in_right);
-        Animation animation_slide_out= AnimationUtils.loadAnimation(getContext(),R.anim.slide_out_right);
+        Animation animation_slide_in = AnimationUtils.loadAnimation(getContext(),R.anim.slide_in_right);
+        Animation animation_slide_out = AnimationUtils.loadAnimation(getContext(),R.anim.slide_out_right);
 
         viewFlipper.setInAnimation(animation_slide_in);
         viewFlipper.setInAnimation(animation_slide_out);

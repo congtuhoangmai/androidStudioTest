@@ -93,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Sử dụng MenuItem được cung cấp bởi thư viện này chứ không phải là mặc định.
         // Tham số đầu tiên là tiêu đề của mục menu và sau đó tham số thứ hai là hình ảnh sẽ là hình nền của mục menu.
-
         menuItems.add(new MenuItem("Home",R.drawable.news_bg));
         menuItems.add(new MenuItem("Đăng bài",R.drawable.feed_bg));
         menuItems.add(new MenuItem("Truyện đã yêu thích",R.drawable.message_bg));
         menuItems.add(new MenuItem("Tất cả truyện",R.drawable.music_bg));
         menuItems.add(new MenuItem("Thông tin app",R.drawable.feed_bg));
         menuItems.add(new MenuItem("Đăng xuất",R.drawable.news_bg));
+
 
         // Then add them to navigation drawer
         sNavigationDrawer.setMenuItemList(menuItems);
