@@ -116,31 +116,31 @@ public class HomeFragment extends Fragment {
 
 
     private void ActionViewFlipper() {
-        ArrayList<String> mangquangcao = new ArrayList<>();
-        mangquangcao.add("https://photo-cms-plo.zadn.vn/w800/Uploaded/2021/wopsvun/2020_09_03/doaremon_wdyw.jpg");
-        mangquangcao.add("https://techtimes.vn/wp-content/uploads/2020/10/conan.jpg");
-        mangquangcao.add("https://www.fullphim.net/static/5fe2d564b3fa6403ffa11d1c/6090030698d96c54c4b714ec_one-piece-3.jpg");
-        mangquangcao.add("https://fado.vn/blog/wp-content/uploads/2020/09/vu-tru-dragon-ball.jpg");
+        ArrayList<Integer> mangquangcao = new ArrayList<>();
+        mangquangcao.add(R.drawable.conan);
+        mangquangcao.add(R.drawable.dragonball);
+        mangquangcao.add(R.drawable.doremon);
+        mangquangcao.add(R.drawable.onepiece);
 
-        for (int i = 0; i < mangquangcao.size(); i++)
-        {
+        for (int i = 0; i < mangquangcao.size(); i++) {
             ImageView imageView = new ImageView(getContext());
-            Picasso.get().load(mangquangcao.get(i)).into(imageView);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setImageResource(mangquangcao.get(i)); // Load ảnh từ drawable
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             viewFlipper.addView(imageView);
         }
 
         // Cấu hình tự động chuyển slide
-        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
 
         // Thiết lập animation cho slide
-        Animation animation_slide_in = AnimationUtils.loadAnimation(getContext(),R.anim.slide_in_right);
-        Animation animation_slide_out = AnimationUtils.loadAnimation(getContext(),R.anim.slide_out_right);
+        Animation animation_slide_in = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
+        Animation animation_slide_out = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_right);
 
         viewFlipper.setInAnimation(animation_slide_in);
-        viewFlipper.setInAnimation(animation_slide_out);
+        viewFlipper.setOutAnimation(animation_slide_out);
     }
+
 
     private void AnhXa()
     {
