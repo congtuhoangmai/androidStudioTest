@@ -74,7 +74,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         databasedoctruyen = new databasedoctruyen(getContext());
-        fab = getActivity().findViewById(R.id.fab_btn);
         Intent intentpq = getActivity().getIntent();
 
         // Lấy các thông tin từ Intent được truyền vào
@@ -83,44 +82,28 @@ public class HomeFragment extends Fragment {
         email = intentpq.getStringExtra("email");
         tentaikhoan = intentpq.getStringExtra("tentaikhoan");
 
-        // Chuyển sang MainTimKiem
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),MainTimKiem.class);
-                startActivity(intent);
-            }
-        });
-
         // Các phương thức khởi tạo giao diện
         AnhXa();
-        // ActionBar();
         ActionViewFlipper();
     }
 
-    /*
-    private void ActionBar() {
 
-        setSupportActionBar(toolbar);
-        getContext().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Tăng bố cục cho fragment
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
-    */
 
 
+    //  Hàm chạy tự động chuyển slide
     private void ActionViewFlipper() {
+
         ArrayList<Integer> mangquangcao = new ArrayList<>();
         mangquangcao.add(R.drawable.conan);
         mangquangcao.add(R.drawable.dragonball);
         mangquangcao.add(R.drawable.doremon);
         mangquangcao.add(R.drawable.onepiece);
+        mangquangcao.add(R.drawable.inuyasha);
 
         for (int i = 0; i < mangquangcao.size(); i++) {
             ImageView imageView = new ImageView(getContext());
@@ -130,6 +113,7 @@ public class HomeFragment extends Fragment {
         }
 
         // Cấu hình tự động chuyển slide
+        viewFlipper.startFlipping();
         viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
 
@@ -139,35 +123,34 @@ public class HomeFragment extends Fragment {
 
         viewFlipper.setInAnimation(animation_slide_in);
         viewFlipper.setOutAnimation(animation_slide_out);
+
+        // Đảm bảo nó bắt đầu chạy
+        if (!viewFlipper.isFlipping()) {
+            viewFlipper.startFlipping();
+        }
     }
 
 
-    private void AnhXa()
-    {
+    private void AnhXa() {
         // Ánh xạ các view từ layout
         viewFlipper = getActivity().findViewById(R.id.viewflipper);
         listViewNew = getActivity().findViewById(R.id.listviewNew);
         listViewNew2 = getActivity().findViewById(R.id.listviewNew2);
 
-        // toolbar = getActivity().findViewById(R.id.toolbarmanhinhchinh);
-        // listView = getActivity().findViewById(R.id.listviewmanhinhchinh);
-        // listviewThongtin = getActivity().findViewById(R.id.listviewThongTin);
-        // navigationView = getActivity().findViewById(R.id.navigationview);
-        // drawerLayout = getActivity().findViewById(R.id.drawerlayout);
-
-
         // Lấy data từ database
-        Cursor cursor1 = databasedoctruyen.getData1();
-        Cursor cursor2 = databasedoctruyen.getData2();
+        Cursor cursor1 = databasedoctruyen.getData1(); // Lấy truyện mới nhất
+        Cursor cursor2 = databasedoctruyen.getData2(); // Lấy all truyện
 
         TruyenArraylist = new ArrayList<>();
         while (cursor1.moveToNext()) {
+
             int id = cursor1.getInt(0);
             String tentruyen = cursor1.getString(1);
             String noidung = cursor1.getString(2);
             String anh = cursor1.getString(3);
             int id_tk = cursor1.getInt(4);
 
+            // Truyện mới nhất
             TruyenArraylist.add(new Truyen(id,tentruyen,noidung,anh,id_tk));
         }
 
@@ -179,6 +162,7 @@ public class HomeFragment extends Fragment {
             String anh = cursor2.getString(3);
             int id_tk = cursor2.getInt(4);
 
+            // Tất cả truyện
             TruyenArraylist2.add(new Truyen(id,tentruyen,noidung,anh,id_tk));
         }
 
@@ -211,11 +195,5 @@ public class HomeFragment extends Fragment {
 
         taiKhoanArrayList = new ArrayList<>();
         taiKhoanArrayList.add(new TaiKhoan(tentaikhoan,email));
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Tăng bố cục cho fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }

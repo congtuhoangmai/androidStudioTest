@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainYeuThich">
+    android:layout_marginTop="20dp">
 
 
     <LinearLayout
@@ -20,11 +20,11 @@
             android:gravity="center"
             android:text="Truyện đã thích"
             android:textSize="30sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"/>
         <ListView
             android:id="@+id/listviewNew"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </LinearLayout>
