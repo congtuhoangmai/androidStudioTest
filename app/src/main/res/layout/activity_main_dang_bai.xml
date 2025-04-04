@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainDangBai">
+    tools:context=".MainDangBai"
+    android:layout_marginTop="20dp">
+
     <TextView
         android:textColor="#2196F3"
         android:textStyle="bold"
@@ -13,7 +15,7 @@
         android:gravity="center"
         android:text="Đăng bài"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></TextView>
+        android:layout_height="wrap_content"/>
     <EditText
         android:inputType="text"
         android:id="@+id/dbtieude"
@@ -21,7 +23,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"></EditText>
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/dbnoidung"
@@ -30,7 +32,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:hint="Nội dung"
-        android:inputType="text"></EditText>
+        android:inputType="text"/>
     <EditText
         android:inputType="textUri"
         android:hint="Ảnh bìa"
@@ -38,7 +40,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"></EditText>
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/dbdangbai"
@@ -48,5 +50,5 @@
         android:textColor="@color/white"
         android:background="@drawable/themtruyen"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"></Button>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

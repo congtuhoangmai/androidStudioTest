@@ -74,7 +74,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         databasedoctruyen = new databasedoctruyen(getContext());
-        fab = getActivity().findViewById(R.id.fab_btn);
         Intent intentpq = getActivity().getIntent();
 
         // Lấy các thông tin từ Intent được truyền vào
@@ -83,91 +82,75 @@ public class HomeFragment extends Fragment {
         email = intentpq.getStringExtra("email");
         tentaikhoan = intentpq.getStringExtra("tentaikhoan");
 
-        // Chuyển sang MainTimKiem
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),MainTimKiem.class);
-                startActivity(intent);
-            }
-        });
-
         // Các phương thức khởi tạo giao diện
         AnhXa();
-        // ActionBar();
         ActionViewFlipper();
     }
 
-    /*
-    private void ActionBar() {
 
-        setSupportActionBar(toolbar);
-        getContext().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Tăng bố cục cho fragment
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
-    */
 
 
+    //  Hàm chạy tự động chuyển slide
     private void ActionViewFlipper() {
-        ArrayList<String> mangquangcao = new ArrayList<>();
-        mangquangcao.add("https://photo-cms-plo.zadn.vn/w800/Uploaded/2021/wopsvun/2020_09_03/doaremon_wdyw.jpg");
-        mangquangcao.add("https://techtimes.vn/wp-content/uploads/2020/10/conan.jpg");
-        mangquangcao.add("https://www.fullphim.net/static/5fe2d564b3fa6403ffa11d1c/6090030698d96c54c4b714ec_one-piece-3.jpg");
-        mangquangcao.add("https://fado.vn/blog/wp-content/uploads/2020/09/vu-tru-dragon-ball.jpg");
 
-        for (int i = 0; i < mangquangcao.size(); i++)
-        {
+        ArrayList<Integer> mangquangcao = new ArrayList<>();
+        mangquangcao.add(R.drawable.conan);
+        mangquangcao.add(R.drawable.dragonball);
+        mangquangcao.add(R.drawable.doremon);
+        mangquangcao.add(R.drawable.onepiece);
+        mangquangcao.add(R.drawable.inuyasha);
+
+        for (int i = 0; i < mangquangcao.size(); i++) {
             ImageView imageView = new ImageView(getContext());
-            Picasso.get().load(mangquangcao.get(i)).into(imageView);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setImageResource(mangquangcao.get(i)); // Load ảnh từ drawable
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             viewFlipper.addView(imageView);
         }
 
         // Cấu hình tự động chuyển slide
-        viewFlipper.setFlipInterval(4000);
+        viewFlipper.startFlipping();
+        viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
 
         // Thiết lập animation cho slide
-        Animation animation_slide_in= AnimationUtils.loadAnimation(getContext(),R.anim.slide_in_right);
-        Animation animation_slide_out= AnimationUtils.loadAnimation(getContext(),R.anim.slide_out_right);
+        Animation animation_slide_in = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_right);
+        Animation animation_slide_out = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_right);
 
         viewFlipper.setInAnimation(animation_slide_in);
-        viewFlipper.setInAnimation(animation_slide_out);
+        viewFlipper.setOutAnimation(animation_slide_out);
+
+        // Đảm bảo nó bắt đầu chạy
+        if (!viewFlipper.isFlipping()) {
+            viewFlipper.startFlipping();
+        }
     }
 
-    private void AnhXa()
-    {
+
+    private void AnhXa() {
         // Ánh xạ các view từ layout
         viewFlipper = getActivity().findViewById(R.id.viewflipper);
         listViewNew = getActivity().findViewById(R.id.listviewNew);
         listViewNew2 = getActivity().findViewById(R.id.listviewNew2);
 
-        // toolbar = getActivity().findViewById(R.id.toolbarmanhinhchinh);
-        // listView = getActivity().findViewById(R.id.listviewmanhinhchinh);
-        // listviewThongtin = getActivity().findViewById(R.id.listviewThongTin);
-        // navigationView = getActivity().findViewById(R.id.navigationview);
-        // drawerLayout = getActivity().findViewById(R.id.drawerlayout);
-
-
         // Lấy data từ database
-        Cursor cursor1 = databasedoctruyen.getData1();
-        Cursor cursor2 = databasedoctruyen.getData2();
+        Cursor cursor1 = databasedoctruyen.getData1(); // Lấy truyện mới nhất
+        Cursor cursor2 = databasedoctruyen.getData2(); // Lấy all truyện
 
         TruyenArraylist = new ArrayList<>();
         while (cursor1.moveToNext()) {
+
             int id = cursor1.getInt(0);
             String tentruyen = cursor1.getString(1);
             String noidung = cursor1.getString(2);
             String anh = cursor1.getString(3);
             int id_tk = cursor1.getInt(4);
 
+            // Truyện mới nhất
             TruyenArraylist.add(new Truyen(id,tentruyen,noidung,anh,id_tk));
         }
 
@@ -179,6 +162,7 @@ public class HomeFragment extends Fragment {
             String anh = cursor2.getString(3);
             int id_tk = cursor2.getInt(4);
 
+            // Tất cả truyện
             TruyenArraylist2.add(new Truyen(id,tentruyen,noidung,anh,id_tk));
         }
 
@@ -211,11 +195,5 @@ public class HomeFragment extends Fragment {
 
         taiKhoanArrayList = new ArrayList<>();
         taiKhoanArrayList.add(new TaiKhoan(tentaikhoan,email));
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Tăng bố cục cho fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }

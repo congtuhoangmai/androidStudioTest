@@ -53,16 +53,10 @@ public class YeuThichFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         databaseDocTruyen=new databasedoctruyen(getContext());
         listViewNew = getView().findViewById(R.id.listviewyeuthich);
 
-
-
-
         AnhXa();
-
-
 
        /* listViewNew.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
