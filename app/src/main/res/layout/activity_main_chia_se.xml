@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:gravity="start|top"
         android:lines="10"
-        android:text="Truyện hay lắm, mời bạn tải app về đọc với mình nhé! ^^ \n https://play.google.com/store/apps/details?id=truyen88.net" />
+        android:text="" />
 
     <Button
         android:id="@+id/button_send"

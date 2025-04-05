@@ -1,6 +1,10 @@
 package com.example.appdoctruyen_v2;
 
+import com.example.appdoctruyen_v2.database.databasedoctruyen;
+
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -54,12 +58,38 @@ public class MainNoiDungTruyen extends AppCompatActivity {
         btnChiaSe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainNoiDungTruyen.this,MainChiaSe.class);
-                startActivity(intent);
+                String tenTruyen = txtTenTruyen.getText().toString();
+    
+                // Retrieve the image URL from the database
+                databasedoctruyen database = new databasedoctruyen(MainNoiDungTruyen.this);
+                String imageUrl = getImageUrlFromDatabase(database, tenTruyen);
+    
+                if (imageUrl == null || imageUrl.isEmpty()) {
+                    Toast.makeText(MainNoiDungTruyen.this, "Không tìm thấy ảnh cho truyện này!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+    
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Chia sẻ truyện: " + tenTruyen);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Mình đang đọc truyện ༼ つ ◕_◕ ༽つ " + tenTruyen + "\n\n" + imageUrl);
+                startActivity(Intent.createChooser(shareIntent, "Chia sẻ qua"));
             }
         });
     }
-
+    
+    private String getImageUrlFromDatabase(databasedoctruyen database, String tenTruyen) {
+        SQLiteDatabase db = database.getReadableDatabase();
+        String imageUrl = null;
+    
+        Cursor cursor = db.rawQuery("SELECT anh FROM truyen WHERE tieude = ?", new String[]{tenTruyen});
+        if (cursor != null && cursor.moveToFirst()) {
+            imageUrl = cursor.getString(0);
+            cursor.close();
+        }
+        db.close();
+        return imageUrl;
+    }
     private void YeuThich() {
         btnYeuThich.setOnClickListener(new View.OnClickListener() {
             @Override
