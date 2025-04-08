@@ -17,9 +17,8 @@ public class MainThongTin extends AppCompatActivity {
         txtThongTin = findViewById(R.id.textviewthongtin);
 
         String thongtin = "Ứng dụng được phát triển bởi Nhóm 2. \n"
-        + "Với ứng dụng này, bạn có thể khám phá và đọc hàng loạt truyện hấp dẫn, lưu lại, đánh giá những truyện yêu thích để đọc sau, "
-        + "đăng bài và chia sẻ cảm nhận của bạn với cộng đồng \n"
-        + "Hãy bắt đầu hành trình khám phá thế giới truyện ngay hôm nay!\n";
+                + "Với ứng dụng này, bạn có thể khám phá và đọc hàng loạt truyện hấp dẫn, lưu lại, đánh giá, chia sẻ những truyện yêu thích"
+                + "Hãy bắt đầu hành trình khám phá thế giới truyện ngay hôm nay!\n";
         txtThongTin.setText(thongtin);
     }
 }
