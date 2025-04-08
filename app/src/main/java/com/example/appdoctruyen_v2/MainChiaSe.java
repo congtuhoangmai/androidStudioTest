@@ -17,18 +17,11 @@ public class MainChiaSe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chia_se);
-    
+
         mEditTextTo = findViewById(R.id.edit_text_to);
         mEditTextSubject = findViewById(R.id.edit_text_subject);
         mEditTextMessage = findViewById(R.id.edit_text_message);
-    
-        Intent intent = getIntent();
-        String tenTruyen = intent.getStringExtra("tentruyen");
-    
-        if (tenTruyen != null && !tenTruyen.isEmpty()) {
-            mEditTextMessage.setText("Mình đang đọc truyện: " + tenTruyen);
-        }
-    
+
         Button buttonSend = findViewById(R.id.button_send);
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
