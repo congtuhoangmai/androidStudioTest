@@ -1,11 +1,10 @@
 package com.example.appdoctruyen_v2.model.main;
 
+import com.example.appdoctruyen_v2.R;
+
 import android.os.Bundle;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.appdoctruyen_v2.R;
 
 public class MainThongTin extends AppCompatActivity {
 
@@ -17,8 +16,10 @@ public class MainThongTin extends AppCompatActivity {
 
         txtThongTin = findViewById(R.id.textviewthongtin);
 
-        String thongtin = " Ứng dụng được phát hành bởi Nhóm 2 \n" +
-                " Ứng dụng vẫn còn những thiếu sót cần đưược phát triển sau. \n";
+        String thongtin = "Ứng dụng được phát triển bởi Nhóm 2. \n"
+        + "Với ứng dụng này, bạn có thể khám phá và đọc hàng loạt truyện hấp dẫn, lưu lại, đánh giá những truyện yêu thích để đọc sau, "
+        + "đăng bài và chia sẻ cảm nhận của bạn với cộng đồng \n"
+        + "Hãy bắt đầu hành trình khám phá thế giới truyện ngay hôm nay!\n";
         txtThongTin.setText(thongtin);
     }
 }
