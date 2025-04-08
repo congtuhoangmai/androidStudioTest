@@ -1,6 +1,9 @@
 package com.example.appdoctruyen_v2;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.example.appdoctruyen_v2.database.databasedoctruyen;
 import com.example.appdoctruyen_v2.model.Truyen;
@@ -46,6 +50,7 @@ public class MainDangBai extends AppCompatActivity {
                 }
                 else{
                     databaseDocTruyen.AddTruyen(truyen);
+                    sendNotification("༼ つ ◕_◕ ༽つ TRUYỆN MỚI!!!", "Truyện " + tentruyen + " vừa được đăng tải.");
                     Intent intent = new Intent(MainDangBai.this, MainAdmin.class);
                     finish();
                     startActivity(intent);
@@ -56,7 +61,24 @@ public class MainDangBai extends AppCompatActivity {
         });
     }
 
+    private void sendNotification(String title, String content) {
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        String channelId = "truyen_notifications";
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelId, "Truyện Notifications", NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("Thông báo về truyện");
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.baseline_notifications_24) // Replace with your notification icon
+                .setContentTitle(title)
+                .setContentText(content)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        notificationManager.notify(1, builder.build());
+    }
     //
     private Truyen CreatTruyen(){
         String tentruyen = edtTieuDe.getText().toString();
