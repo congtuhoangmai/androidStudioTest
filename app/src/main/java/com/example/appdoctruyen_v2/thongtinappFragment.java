@@ -54,9 +54,10 @@ public class thongtinappFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         txtThongTin = getActivity().findViewById(R.id.textviewthongtin);
 
-        String thongtin = " Ứng dụng được phát triển bởi Nhóm 2, mang đến cho bạn trải nghiệm đọc truyện tuyệt vời. Với ứng dụng này, bạn có thể \n" +
-                " Khám phá và đọc hàng loạt truyện hấp dẫn. \n"+" Lưu lại những truyện yêu thích để đọc sau. \n"+" Đăng bài và chia sẻ cảm nhận của bạn với cộng đồng. \n" +" Đánh giá và theo dõi các truyện mà bạn yêu thích. \n"+
-                "Hãy bắt đầu hành trình khám phá thế giới truyện ngay hôm nay! Chúng tôi luôn nỗ lực để mang đến trải nghiệm tốt nhất cho bạn.";
+        String thongtin = "Ứng dụng được phát triển bởi Nhóm 2. \n"
+        + "Với ứng dụng này, bạn có thể khám phá và đọc hàng loạt truyện hấp dẫn, lưu lại, đánh giá những truyện yêu thích để đọc sau, "
+        + "đăng bài và chia sẻ cảm nhận của bạn với cộng đồng \n"
+        + "Hãy bắt đầu hành trình khám phá thế giới truyện ngay hôm nay!\n" 
         txtThongTin.setText(thongtin);
     }
 
