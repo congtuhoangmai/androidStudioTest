@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="20dp"
-                    android:text="Mới Nhất"
+                    android:text="@string/newest"
                     android:textColor="#818080"
                     android:textSize="25sp"
                     android:textStyle="bold"/>
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:text="Top truyện"
+                android:text="@string/popular"
                 android:textColor="#818080"
                 android:textSize="25sp"
                 android:textStyle="bold"/>

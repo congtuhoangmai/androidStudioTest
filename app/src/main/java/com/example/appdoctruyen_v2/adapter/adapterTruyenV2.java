@@ -62,9 +62,9 @@ public class adapterTruyenV2  extends RecyclerView.Adapter<adapterTruyenV2.ViewH
         holder.txtTenTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, MainNoiDungTruyen.class);
-                String tent= truyen.getTenTruyen();
-                String noidungt=truyen.getNoiDung();
+                Intent intent = new Intent(context, MainNoiDungTruyen.class);
+                String tent = truyen.getTenTruyen();
+                String noidungt = truyen.getNoiDung();
                 intent.putExtra("tentruyen",tent);
                 intent.putExtra("noidung",noidungt);
                 context.startActivity(intent);

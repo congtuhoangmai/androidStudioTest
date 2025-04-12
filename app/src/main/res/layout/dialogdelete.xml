@@ -20,8 +20,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="               Bạn muốn ?               "
-        android:textSize="20sp"></TextView>
+        android:text="Bạn muốn ?"
+        android:textSize="20sp"/>
    <LinearLayout
        android:gravity="center"
        android:layout_marginTop="20dp"
@@ -33,20 +33,20 @@
            android:textColor="@color/white"
            android:layout_marginRight="15dp"
            android:id="@+id/buttonDelete"
-           android:text="Xoá"
+           android:text="@string/remove"
            android:layout_marginBottom="5dp"
 
            android:layout_width="wrap_content"
-           android:layout_height="wrap_content"></Button>
+           android:layout_height="wrap_content"/>
        <Button
            android:layout_marginLeft="15dp"
            android:background="@color/teal_200"
            android:textColor="@color/white"
             android:layout_marginBottom="5dp"
            android:id="@+id/buttonUpdate"
-           android:text="CẬp nhật"
+           android:text="@string/update"
            android:layout_width="wrap_content"
-           android:layout_height="match_parent"></Button>
+           android:layout_height="match_parent"/>
 
    </LinearLayout>
 </LinearLayout>

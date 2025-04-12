@@ -77,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
                     if (itemId == R.id.nav_home) {
                         if (currentFragment instanceof HomeFragment) return true;
                         selectedFragment = new HomeFragment();
-                        title = "Trang chủ";
+                        title = getString(R.string.home);
                     } else if (itemId == R.id.nav_all) {
                         if (currentFragment instanceof TatcatruyenFragment) return true;
                         selectedFragment = new TatcatruyenFragment();
-                        title = "Tất cả truyện";
+                        title = getString(R.string.all_story);
                     } else if (itemId == R.id.nav_favorite) {
                         if (currentFragment instanceof YeuThichFragment) return true;
                         selectedFragment = new YeuThichFragment();
-                        title = "Truyện yêu thích";
+                        title = getString(R.string.favorite);
                     } else if (itemId == R.id.nav_upload) {
                         if (currentFragment instanceof DangBaiFragment) return true;
                         selectedFragment = new DangBaiFragment();
-                        title = "Đăng bài";
+                        title = getString(R.string.post);
                     }
 
                     // Chuyển đổi sang Fragment được chọn ở trên

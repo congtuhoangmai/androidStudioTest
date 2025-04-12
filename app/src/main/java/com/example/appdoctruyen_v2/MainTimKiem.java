@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class MainTimKiem extends AppCompatActivity {
 
     adapterTruyen adaptertruyen;
     databasedoctruyen databaseDocTruyen;
+    ImageView homeImage;
 
 //  ArrayAdapter<Truyen> adapter;
 
@@ -45,12 +47,19 @@ public class MainTimKiem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tim_kiem);
 
+        homeImage = findViewById(R.id.homeIcon);
         listView = findViewById(R.id.listviewtimkiem);
-        //toolbar = findViewById(R.id.toolbartimkiem);
+        // toolbar = findViewById(R.id.toolbartimkiem);
         edt = findViewById(R.id.timkiem);
 
         //ActionBar();
         initList();
+
+        // Xử lý sự kiến click vào home icon
+        homeImage.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
 
 
         edt.addTextChangedListener(new TextWatcher() {
@@ -66,14 +75,13 @@ public class MainTimKiem extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 filter(s.toString());
             }
-
         });
     }
 
-    //search
+    // Search
     private void filter(String text){
 
-        //xóa sau mỗi lần gọi tới filter
+        // Xóa sau mỗi lần gọi tới filter
         arrayList.clear();
 
         ArrayList<Truyen> filteredList = new ArrayList<>();
@@ -82,7 +90,7 @@ public class MainTimKiem extends AppCompatActivity {
             if (item.getTenTruyen().toLowerCase().contains(text.toLowerCase())){
                 filteredList.add(item);
 
-                //Thêm dữ liệu để hiển thị ra item nội dung
+                // Thêm dữ liệu để hiển thị ra item nội dung
                 arrayList.add(item);
             }
         }

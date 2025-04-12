@@ -1,7 +1,22 @@
 <resources>
     <string name="app_name">appdoctruyen_v2</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="navigation_drawer_open">Open Drawer</string>
-    <string name="navigation_drawer_close">Close Drawer</string>
+    <string name="home">Trang chủ</string>
+    <string name="all_story">Tất cả truyện</string>
+    <string name="favorite">Truyện yêu thích</string>
+    <string name="post">Đăng bài</string>
+    <string name="review">Đánh giá</string>
+    <string name="share">Chia sẻ</string>
+    <string name="love">Yêu thích</string>
+    <string name="remove">Xóa</string>
+    <string name="update">Cập nhật</string>
+    <string name="add_story">Thêm truyện</string>
+    <string name="log_in">Đăng nhập</string>
+    <string name="sign_up">Đăng ký</string>
+    <string name="dont_have_account">Bạn chưa có tài khoản?</string>
+    <string name="username">Tên đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="return_to_log_in">Trở về đăng nhập</string>
+    <string name="newest">Mới nhất</string>
+    <string name="popular">Top truyện</string>
+    <string name="search">Tìm kiếm</string>
 </resources>

@@ -6,18 +6,19 @@
     android:layout_height="match_parent">
 
     <!-- Thanh Toolbar -->
+
+    <!-- FrameLayout để hiển thị Fragment -->
+
+    <!-- Bottom Navigation -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#00a4d6"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="Trang chủ"
-        app:menu="@menu/top_nav_menu"/>
+        app:menu="@menu/top_nav_menu"
+        app:title="@string/home" />
 
-    <!-- FrameLayout để hiển thị Fragment -->
-
-    <!-- Bottom Navigation -->
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
@@ -42,36 +43,3 @@
         app:labelVisibilityMode="labeled"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
-<!--
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   android:backgroundTint="#CD1212"
-   tools:context=".MainActivity">
-
-
-   <com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer
-       android:id="@+id/navigationDrawer"
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.0"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintVertical_bias="0.0">
-
-
-       <FrameLayout
-           android:id="@+id/frameLayout"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:layout_alignParentBottom="true"
-           android:layout_marginBottom="0dp" />
-
-   </com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer>
-</androidx.constraintlayout.widget.ConstraintLayout>
--->
