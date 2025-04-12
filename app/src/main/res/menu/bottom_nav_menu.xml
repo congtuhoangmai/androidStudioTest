@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:title="Trang chủ"
+        android:title="@string/home"
         android:icon="@drawable/home"/>
     <item
         android:id="@+id/nav_all"
-        android:title="Tất cả truyện"
+        android:title="@string/all_story"
         android:icon="@drawable/book"
         />
     <item
         android:id="@+id/nav_favorite"
-        android:title="Yêu thích"
+        android:title="@string/favorite"
         android:icon="@drawable/heart"
         />
     <item
         android:id="@+id/nav_upload"
-        android:title="Đăng bài"
+        android:title="@string/post"
         android:icon="@drawable/post"
         />
 </menu>

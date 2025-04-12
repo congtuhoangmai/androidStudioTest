@@ -15,7 +15,7 @@
         <Button
             android:layout_gravity="center"
             android:id="@+id/buttonAddTruyen"
-            android:text="Thêm truyện"
+            android:text="@string/add_story"
             android:textColor="@color/white"
             android:background="@drawable/themtruyen"
             android:layout_width="130dp"

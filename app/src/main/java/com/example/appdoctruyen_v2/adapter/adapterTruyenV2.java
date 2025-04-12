@@ -62,9 +62,9 @@ public class adapterTruyenV2  extends RecyclerView.Adapter<adapterTruyenV2.ViewH
         holder.txtTenTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(context, MainNoiDungTruyen.class);
-                String tent= truyen.getTenTruyen();
-                String noidungt=truyen.getNoiDung();
+                Intent intent = new Intent(context, MainNoiDungTruyen.class);
+                String tent = truyen.getTenTruyen();
+                String noidungt = truyen.getNoiDung();
                 intent.putExtra("tentruyen",tent);
                 intent.putExtra("noidung",noidungt);
                 context.startActivity(intent);
@@ -83,9 +83,9 @@ public class adapterTruyenV2  extends RecyclerView.Adapter<adapterTruyenV2.ViewH
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtTenTruyen =  itemView.findViewById(R.id.textviewTenTruyenv2);
+            txtTenTruyen = itemView.findViewById(R.id.textviewTenTruyenv2);
             // viewHolder.txtTenTruyen=convertView.findViewById(R.id.textviewTenTruyen);
-            imgtruyen=itemView.findViewById(R.id.imgNewTruyenv2);
+            imgtruyen = itemView.findViewById(R.id.imgNewTruyenv2);
         }
     }
 }

@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Đăng ký"
+        android:text="@string/sign_up"
         android:textColor="#02baf2"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -29,7 +29,7 @@
     <EditText
         android:id="@+id/dkTaiKhoan"
         android:drawableRight="@drawable/ic_taikhoan"
-        android:hint="Tài Khoản"
+        android:hint="@string/username"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:layout_width="250dp"
@@ -40,7 +40,7 @@
     <EditText
         android:id="@+id/dkMatKhau"
         android:drawableRight="@drawable/ic_matkhau"
-        android:hint="Mật Khẩu"
+        android:hint="@string/password"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:layout_width="250dp"
@@ -63,7 +63,7 @@
         android:id="@+id/dkDangKy"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:text="Đăng ký"
+        android:text="@string/sign_up"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@drawable/botron"/>
@@ -71,7 +71,7 @@
         android:id="@+id/dkDangNhap"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:text="Trở về Đăng Nhập"
+        android:text="@string/return_to_log_in"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@drawable/botron"/>

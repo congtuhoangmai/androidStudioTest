@@ -30,12 +30,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
-    Class fragmentClass;
+    // Class fragmentClass;
     public static Fragment fragment;
     public static int check_admin;
     public static String tentaikhoan;
     public static String email;
-
+    String title;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Bottom Navigation
@@ -76,21 +77,26 @@ public class MainActivity extends AppCompatActivity {
                     if (itemId == R.id.nav_home) {
                         if (currentFragment instanceof HomeFragment) return true;
                         selectedFragment = new HomeFragment();
+                        title = getString(R.string.home);
                     } else if (itemId == R.id.nav_all) {
                         if (currentFragment instanceof TatcatruyenFragment) return true;
                         selectedFragment = new TatcatruyenFragment();
+                        title = getString(R.string.all_story);
                     } else if (itemId == R.id.nav_favorite) {
                         if (currentFragment instanceof YeuThichFragment) return true;
                         selectedFragment = new YeuThichFragment();
+                        title = getString(R.string.favorite);
                     } else if (itemId == R.id.nav_upload) {
                         if (currentFragment instanceof DangBaiFragment) return true;
                         selectedFragment = new DangBaiFragment();
+                        title = getString(R.string.post);
                     }
 
-
+                    // Chuyển đổi sang Fragment được chọn ở trên
                     if (selectedFragment != null) {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.frame_layout, selectedFragment).commit();
+                        toolbar.setTitle(title);
                     }
                     return true;
                 }
