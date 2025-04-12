@@ -12,7 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="#00a4d6"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="App"
+        app:title="Trang chủ"
         app:menu="@menu/top_nav_menu"/>
 
     <!-- FrameLayout để hiển thị Fragment -->
