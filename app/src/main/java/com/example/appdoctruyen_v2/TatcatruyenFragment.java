@@ -91,7 +91,7 @@ public class TatcatruyenFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         listView.setLayoutManager(linearLayoutManager);
 
-        adaptertruyen=new adapterTruyen(getContext(),arrayList);
+        adaptertruyen = new adapterTruyen(getContext(),arrayList);
         listView.setAdapter(adaptertruyen);
 
         cursor1.moveToFirst();

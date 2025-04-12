@@ -40,8 +40,6 @@ public class YeuThichFragment extends Fragment {
 
     com.example.appdoctruyen_v2.adapter.adapterTruyenYeuThich adapterTruyen;
 
-
-
     //databasedoctruyen databasedoctruyen;
     databasedoctruyen databaseDocTruyen;
 
@@ -53,7 +51,7 @@ public class YeuThichFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        databaseDocTruyen=new databasedoctruyen(getContext());
+        databaseDocTruyen = new databasedoctruyen(getContext());
         listViewNew = getView().findViewById(R.id.listviewyeuthich);
 
         AnhXa();
@@ -100,6 +98,7 @@ public class YeuThichFragment extends Fragment {
                 Toast.makeText(getContext(),"Bỏ yêu thích thành công",Toast.LENGTH_SHORT).show();
             }
         });
+
         btnNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,24 +111,25 @@ public class YeuThichFragment extends Fragment {
 
     private void AnhXa()
     {
-        //toolbar=findViewById(R.id.toolbarmanhinhchinh);
-        listViewNew=getView().findViewById(R.id.listviewyeuthich);
+        // toolbar = findViewById(R.id.toolbarmanhinhchinh);
+        listViewNew = getView().findViewById(R.id.listviewyeuthich);
 
-        TruyenArraylist=new ArrayList<>();
+        TruyenArraylist = new ArrayList<>();
 
         Cursor cursor1 = databaseDocTruyen.getData4();
         while (cursor1.moveToNext())
         {
-            int id=cursor1.getInt(0);
-            String tentruyen=cursor1.getString(1);
-            String noidung=cursor1.getString(2);
-            String anh=cursor1.getString(3);
-            int id_tk=cursor1.getInt(4);
+            int id = cursor1.getInt(0);
+            String tentruyen = cursor1.getString(1);
+            String noidung = cursor1.getString(2);
+            String anh = cursor1.getString(3);
+            int id_tk = cursor1.getInt(4);
 
             TruyenArraylist.add(new Truyen(id,tentruyen,noidung,anh,id_tk));
-
         }
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+
+        // Sắp xếp các item truyện trong phần yêu thích thành 3 cột
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         gridLayoutManager.setOrientation(GridLayoutManager.VERTICAL);
         listViewNew.setLayoutManager(gridLayoutManager);
 
@@ -137,8 +137,6 @@ public class YeuThichFragment extends Fragment {
         listViewNew.setAdapter(adapterTruyen);
         cursor1.moveToFirst();
         cursor1.close();
-
-
     }
 
     @Override
@@ -147,5 +145,4 @@ public class YeuThichFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_yeuthich, container, false);
     }
-
 }

@@ -44,7 +44,7 @@ public class adapterTruyenYeuThich extends RecyclerView.Adapter<adapterTruyenYeu
     }
 
     public void filterList(ArrayList<Truyen> filteredList) {
-        listTruyen=filteredList;
+        listTruyen = filteredList;
         notifyDataSetChanged();
     }
     @NonNull
@@ -57,7 +57,7 @@ public class adapterTruyenYeuThich extends RecyclerView.Adapter<adapterTruyenYeu
 
     @Override
     public void onBindViewHolder(@NonNull adapterTruyenYeuThich.ViewHolder holder, int position) {
-        Truyen truyen=(Truyen) listTruyen.get(position);
+        Truyen truyen = (Truyen) listTruyen.get(position);
         holder.txtTenTruyen.setText(truyen.getTenTruyen());
 
         Picasso.get().load(truyen.getAnh()).placeholder(R.drawable.ic_load).error(R.drawable.ic_image).into(holder.imgtruyen);
@@ -69,21 +69,14 @@ public class adapterTruyenYeuThich extends RecyclerView.Adapter<adapterTruyenYeu
                 return false;
             }
         });
-
-       holder.txtTenTruyen.setOnLongClickListener(new View.OnLongClickListener() {
-           @Override
-           public boolean onLongClick(View v) {
-               DialogDeleteYeuThic(position);
-               return false;
-           }
-       });
     }
+
     private void DialogDeleteYeuThic(int position) {
         databasedoctruyen databaseDocTruyen;
-        databaseDocTruyen=new databasedoctruyen(context);
+        databaseDocTruyen = new databasedoctruyen(context);
 
         //Tạo đối tượng cửa sổ dialog
-        Dialog dialog  =  new Dialog(context);
+        Dialog dialog = new Dialog(context);
 
         //Nạp layout vào
         dialog.setContentView(R.layout.dialogdeleteyeuthic);
@@ -126,9 +119,9 @@ public class adapterTruyenYeuThich extends RecyclerView.Adapter<adapterTruyenYeu
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtTenTruyen =  itemView.findViewById(R.id.textviewTenTruyenv2);
+            txtTenTruyen = itemView.findViewById(R.id.textviewTenTruyenv2);
             //viewHolder.txtTenTruyen=convertView.findViewById(R.id.textviewTenTruyen);
-            imgtruyen=itemView.findViewById(R.id.imgNewTruyenv2);
+            imgtruyen = itemView.findViewById(R.id.imgNewTruyenv2);
         }
     }
 }

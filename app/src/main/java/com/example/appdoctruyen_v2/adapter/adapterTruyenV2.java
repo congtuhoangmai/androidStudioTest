@@ -83,9 +83,9 @@ public class adapterTruyenV2  extends RecyclerView.Adapter<adapterTruyenV2.ViewH
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtTenTruyen =  itemView.findViewById(R.id.textviewTenTruyenv2);
+            txtTenTruyen = itemView.findViewById(R.id.textviewTenTruyenv2);
             // viewHolder.txtTenTruyen=convertView.findViewById(R.id.textviewTenTruyen);
-            imgtruyen=itemView.findViewById(R.id.imgNewTruyenv2);
+            imgtruyen = itemView.findViewById(R.id.imgNewTruyenv2);
         }
     }
 }
