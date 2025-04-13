@@ -90,7 +90,7 @@ public class MainAdmin extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         listView.setLayoutManager(linearLayoutManager);
 
-        adaptertruyen=new adapterTruyen(getApplicationContext(),TruyenArraylist);
+        adaptertruyen = new adapterTruyen(getApplicationContext(),TruyenArraylist);
         listView.setAdapter(adaptertruyen);
         cursor1.moveToFirst();
         cursor1.close();

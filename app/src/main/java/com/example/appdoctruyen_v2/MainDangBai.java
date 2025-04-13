@@ -51,9 +51,9 @@ public class MainDangBai extends AppCompatActivity {
                 else{
                     databaseDocTruyen.AddTruyen(truyen);
                     sendNotification("༼ つ ◕_◕ ༽つ TRUYỆN MỚI!!!", "Truyện " + tentruyen + " vừa được đăng tải.");
-                    Intent intent = new Intent(MainDangBai.this, MainAdmin.class);
+                    // Intent intent = new Intent(MainDangBai.this, MainAdmin.class);
                     finish();
-                    startActivity(intent);
+                    // startActivity(intent);
                     Toast.makeText(MainDangBai.this,"Thêm truyện thành công",Toast.LENGTH_SHORT).show();
                     Log.e("Thêm truyện : ","Thành công");
                 }

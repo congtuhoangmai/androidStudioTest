@@ -83,7 +83,7 @@ public class adapterDangBai extends RecyclerView.Adapter<adapterDangBai.ViewHold
     }
 
 
-    //Dialog Delete
+    // Dialog Delete
     private void DialogDelete(int position) {
         Truyen truyen = (Truyen) listTruyen.get(position);
         databasedoctruyen databaseDocTruyen;
@@ -126,6 +126,7 @@ public class adapterDangBai extends RecyclerView.Adapter<adapterDangBai.ViewHold
             intent.putExtra("noidung",noidungt);
             intent.putExtra("imgtruyen",imgtruyen);
             int idtruyen = listTruyen.get(position).getID();
+
             //Xóa trong SQL
             databaseDocTruyen.Delete(idtruyen);
             listTruyen.remove(position);
@@ -144,7 +145,6 @@ public class adapterDangBai extends RecyclerView.Adapter<adapterDangBai.ViewHold
         return listTruyen.size();
     }
 
-
     public  class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTenTruyen;
         ImageView imgtruyen;
@@ -152,8 +152,8 @@ public class adapterDangBai extends RecyclerView.Adapter<adapterDangBai.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             txtTenTruyen =  itemView.findViewById(R.id.textviewTenTruyen);
-            //viewHolder.txtTenTruyen=convertView.findViewById(R.id.textviewTenTruyen);
-            imgtruyen=itemView.findViewById(R.id.imgNewTruyen);
+            // viewHolder.txtTenTruyen=convertView.findViewById(R.id.textviewTenTruyen);
+            imgtruyen = itemView.findViewById(R.id.imgNewTruyen);
         }
     }
 }
