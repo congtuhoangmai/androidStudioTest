@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECEDEF"
-    tools:context=".TatcatruyenFragment">
+    tools:context=".fragment.TatcatruyenFragment"
+    style="@style/Screen">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:layout_margin="5dp"
+        android:layout_margin="15dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -19,4 +19,8 @@
     <string name="newest">Mới nhất</string>
     <string name="popular">Top truyện</string>
     <string name="search">Tìm kiếm</string>
+    <string name="thong_tin_app">Thông tin app</string>
+    <string name="cap_quyen_thong_bao">Cấp quyền thông báo</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="tai_khoan">Tài khoản</string>
 </resources>

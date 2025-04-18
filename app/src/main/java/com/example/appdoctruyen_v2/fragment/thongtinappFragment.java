@@ -1,4 +1,4 @@
-package com.example.appdoctruyen_v2;
+package com.example.appdoctruyen_v2.fragment;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.appdoctruyen_v2.R;
 
 /**
  * A simple {@link Fragment} subclass.

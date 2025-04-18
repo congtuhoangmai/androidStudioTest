@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
    >
 
     <ImageView
@@ -48,6 +49,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/edit"
             android:paddingLeft="20dp"
+            android:textColor="@color/black"
             />
         <EditText
             android:id="@+id/edtPasswod"
@@ -62,6 +64,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/edit"
             android:paddingLeft="20dp"
+            android:textColor="@color/black"
 
             />
         <TextView

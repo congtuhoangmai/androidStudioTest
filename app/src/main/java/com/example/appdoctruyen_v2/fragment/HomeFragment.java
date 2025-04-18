@@ -1,43 +1,33 @@
-package com.example.appdoctruyen_v2;
+package com.example.appdoctruyen_v2.fragment;
 
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.example.appdoctruyen_v2.adapter.adapterTruyen;
+import com.example.appdoctruyen_v2.R;
 import com.example.appdoctruyen_v2.database.databasedoctruyen;
 import com.example.appdoctruyen_v2.model.TaiKhoan;
 import com.example.appdoctruyen_v2.model.Truyen;
 import com.example.appdoctruyen_v2.model.chuyenmuc;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import  com.example.appdoctruyen_v2.database.*;
+
 import java.util.ArrayList;
 import  com.example.appdoctruyen_v2.adapter.*;
-import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.

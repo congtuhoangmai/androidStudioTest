@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    android:layout_marginTop="20dp">
+    tools:context=".fragment.HomeFragment"
+    android:layout_marginTop="20dp"
+    >
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        style="@style/Screen"
         >
         <LinearLayout
             android:orientation="vertical"
@@ -17,7 +19,6 @@
 
 
             <ViewFlipper
-                android:background="#ffffff"
                 android:id="@+id/viewflipper"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -26,10 +27,11 @@
 
 
             <LinearLayout
-                android:background="#FFFFFF"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -46,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="10dp"
                    />
             </LinearLayout>
@@ -65,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"/>
 
         </LinearLayout>

@@ -1,32 +1,28 @@
 package com.example.appdoctruyen_v2;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.appdoctruyen_v2.adapter.ViewPagerAdapter;
-import com.example.appdoctruyen_v2.database.databasedoctruyen;
-import com.example.appdoctruyen_v2.model.Truyen;
+import com.example.appdoctruyen_v2.fragment.AccountFragmment;
+import com.example.appdoctruyen_v2.fragment.DangBaiFragment;
+import com.example.appdoctruyen_v2.fragment.HomeFragment;
+import com.example.appdoctruyen_v2.fragment.TatcatruyenFragment;
+import com.example.appdoctruyen_v2.fragment.YeuThichFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.navigation.NavigationView;
-import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
@@ -37,12 +33,32 @@ public class MainActivity extends AppCompatActivity {
     public static String email;
     String title;
     Toolbar toolbar;
+    Button button;
+
+    // Hằng số cho việc hiển thị lại AccountFragment
+    public static final String SHOW_ACCOUNT_AFTER_THEME_CHANGE = "show_account_after_theme_change";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        // Kiểm tra và áp dụng Dark Mode trước khi setContentView
+        SharedPreferences sharedPreferences = getSharedPreferences("app_settings", Context.MODE_PRIVATE);
+        boolean isDarkModeEnabled = sharedPreferences.getBoolean("dark_mode_enabled", false);
+
+        if (isDarkModeEnabled) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Nhận thông tin người dùng từ Intent
         Intent intentpq = getIntent();
         check_admin = intentpq.getIntExtra("phanq",0);
         email = intentpq.getStringExtra("email");
@@ -57,11 +73,47 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnItemSelectedListener(navListener);
 
+
+        /*
         // Load Fragment mặc định
         Fragment fragment = new HomeFragment();
         loadFragment(fragment);
 
+        */
+
+
+
+        // Kiểm tra xem có cần hiển thị AccountFragment hay không
+        boolean showAccountFragment = sharedPreferences.getBoolean(SHOW_ACCOUNT_AFTER_THEME_CHANGE, false);
+
+
+        if (showAccountFragment) {
+            // Hiển thị AccountFragment
+            Fragment accountFragment = new AccountFragmment();
+            loadFragment(accountFragment);
+            toolbar.setTitle(getString(R.string.tai_khoan));
+
+            // Bỏ chọn tất cả các menu item trong bottom navigation
+            Menu menu = bottomNavigation.getMenu();
+            for (int i = 0; i < menu.size(); i++) {
+                menu.getItem(i).setChecked(false);
+            }
+
+            // Xóa flag sau khi đã xử lý
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(SHOW_ACCOUNT_AFTER_THEME_CHANGE, false);
+            editor.apply();
+        } else {
+            // Load Fragment mặc định (Home)
+            Fragment fragment = new HomeFragment();
+            loadFragment(fragment);
+            toolbar.setTitle(getString(R.string.home));
+        }
+
+
+
     }
+
 
 
     // Xử lý sự kiện chọn Bottom Navigation
@@ -119,10 +171,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else if (item.getItemId() == R.id.action_account) {
+
             // Chuyển sang Fragment tài khoản
             Fragment accountFragment = new AccountFragmment();
             loadFragment(accountFragment);
-            return true;
+
+            // Cập nhật tiêu đề Toolbar
+            toolbar.setTitle(getString(R.string.tai_khoan));
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -135,4 +191,5 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
 }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainTimKiem">
+    tools:context=".MainTimKiem"
+    style="@style/Screen">
 
 
     <LinearLayout
@@ -30,7 +31,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                app:tint="#03A9E0" />
+                style="@style/IconColor" />
 
             <EditText
                 android:hint="@string/search"
@@ -38,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
 

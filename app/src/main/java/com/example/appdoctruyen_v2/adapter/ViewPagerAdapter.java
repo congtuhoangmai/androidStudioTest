@@ -1,3 +1,5 @@
+
+
 package com.example.appdoctruyen_v2.adapter;
 
 import androidx.annotation.NonNull;
@@ -5,8 +7,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.appdoctruyen_v2.AccountFragmment;
-import com.example.appdoctruyen_v2.HomeFragment;
+import com.example.appdoctruyen_v2.fragment.AccountFragmment;
+import com.example.appdoctruyen_v2.fragment.HomeFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
@@ -32,3 +34,5 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         return 2;
     }
 }
+
+

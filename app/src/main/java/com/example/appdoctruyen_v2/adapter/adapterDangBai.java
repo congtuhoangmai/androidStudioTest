@@ -1,10 +1,8 @@
 package com.example.appdoctruyen_v2.adapter;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appdoctruyen_v2.DangBaiFragment;
 import com.example.appdoctruyen_v2.MainCapNhat;
-import com.example.appdoctruyen_v2.MainNoiDungTruyen;
 import com.example.appdoctruyen_v2.R;
 import com.example.appdoctruyen_v2.database.databasedoctruyen;
 import com.example.appdoctruyen_v2.model.Truyen;

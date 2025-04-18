@@ -1,7 +1,6 @@
-package com.example.appdoctruyen_v2;
+package com.example.appdoctruyen_v2.fragment;
 
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -9,10 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 
@@ -22,11 +18,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appdoctruyen_v2.MainActivity;
+import com.example.appdoctruyen_v2.MainDangBai;
+import com.example.appdoctruyen_v2.R;
 import com.example.appdoctruyen_v2.adapter.adapterDangBai;
-import com.example.appdoctruyen_v2.adapter.adapterTruyen;
 import com.example.appdoctruyen_v2.database.databasedoctruyen;
 import com.example.appdoctruyen_v2.model.Truyen;
-import com.example.appdoctruyen_v2.model.main.MainAdmin;
 
 import java.util.ArrayList;
 

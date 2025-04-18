@@ -20,4 +20,8 @@
     <string name="newest">Latest</string>
     <string name="popular">"Popular "</string>
     <string name="search">Search</string>
+    <string name="thong_tin_app">App Information</string>
+    <string name="cap_quyen_thong_bao">Notification Permission</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="tai_khoan">Account</string>
 </resources>

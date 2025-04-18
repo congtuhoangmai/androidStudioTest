@@ -20,4 +20,8 @@
     <string name="newest">Derniers</string>
     <string name="popular">Populaire</string>
     <string name="search">Rechercher</string>
+    <string name="thong_tin_app">Informations sur l\'application</string>
+    <string name="cap_quyen_thong_bao">Autorisation de notification</string>
+    <string name="dark_mode">Mode sombre</string>
+    <string name="tai_khoan">Compte</string>
 </resources>
