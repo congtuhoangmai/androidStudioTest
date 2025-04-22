@@ -2,22 +2,29 @@ package com.example.appdoctruyen_v2.fragment;
 
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appdoctruyen_v2.R;
+import com.example.appdoctruyen_v2.adapter.adapterTruyen;
+import com.example.appdoctruyen_v2.adapter.adapterTruyenV2;
 import com.example.appdoctruyen_v2.adapter.adapterTruyenYeuThich;
 import com.example.appdoctruyen_v2.database.databasedoctruyen;
 import com.example.appdoctruyen_v2.model.Truyen;
@@ -47,8 +54,18 @@ public class YeuThichFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         databaseDocTruyen = new databasedoctruyen(getContext());
-        listViewNew = getView().findViewById(R.id.listviewyeuthich);
-
+        int orientation = getResources().getConfiguration().orientation;
+        int spanCount = (orientation == Configuration.ORIENTATION_LANDSCAPE) ? 6 : 3;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            int sidePaddingDp = 90;
+            int sidePaddingPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    sidePaddingDp,
+                    getResources().getDisplayMetrics()
+            );
+            listViewNew.setPadding(sidePaddingPx, 0, sidePaddingPx, 0);
+            listViewNew.setClipToPadding(false);
+        }
         AnhXa();
 
        /* listViewNew.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
