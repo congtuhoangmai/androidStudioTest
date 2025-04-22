@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         // Kiểm tra xem có cần hiển thị AccountFragment hay không
         boolean showAccountFragment = sharedPreferences.getBoolean(SHOW_ACCOUNT_AFTER_THEME_CHANGE, false);
 
-
         if (showAccountFragment) {
             // Hiển thị AccountFragment
             Fragment accountFragment = new AccountFragmment();
@@ -109,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
             loadFragment(fragment);
             toolbar.setTitle(getString(R.string.home));
         }
-
-
-
     }
 
 
@@ -168,6 +164,9 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_search) {
             // Xử lý tìm kiếm tại đây (hiển thị màn hình tìm kiếm hoặc hiển thị Toast)
             Intent intent = new Intent(this, MainTimKiem.class);
+            intent.putExtra("phanq", check_admin);
+            intent.putExtra("email", email);
+            intent.putExtra("tentaikhoan", tentaikhoan);
             startActivity(intent);
             return true;
         } else if (item.getItemId() == R.id.action_account) {

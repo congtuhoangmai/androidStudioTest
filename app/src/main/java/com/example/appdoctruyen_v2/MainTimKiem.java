@@ -55,9 +55,17 @@ public class MainTimKiem extends AppCompatActivity {
         //ActionBar();
         initList();
 
+        Intent intentpq = getIntent();
+        int check_admin = intentpq.getIntExtra("phanq",0);
+        String email = intentpq.getStringExtra("email");
+        String tentaikhoan = intentpq.getStringExtra("tentaikhoan");
+
         // Xử lý sự kiến click vào home icon
         homeImage.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("phanq", check_admin);
+            intent.putExtra("email", email);
+            intent.putExtra("tentaikhoan", tentaikhoan);
             startActivity(intent);
         });
 
